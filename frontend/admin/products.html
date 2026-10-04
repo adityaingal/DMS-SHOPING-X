@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Products — ShopX Admin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234f46e5'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='Segoe UI' font-weight='bold'>X</text></svg>" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/splash.css" />
+  <script src="/js/splash.js"></script>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body data-page="admin" data-admin-page="products">
+  <div class="admin-body">
+    <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;gap:.7rem;align-items:center">
+          <button class="btn-icon admin-menu-btn" id="adminMenuBtn" aria-label="Open menu">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+          <div>
+            <h1>Products</h1>
+            <div class="sub">Add, edit and manage catalogue inventory</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:.5rem">
+          <a class="btn btn-sm btn-outline" href="#categories">Categories</a>
+          <button class="btn btn-sm" id="newProductBtn">+ New product</button>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="toolbar">
+          <input class="input grow" type="search" id="searchInput" placeholder="Search products by name…" aria-label="Search products" />
+          <select class="select" id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option></select>
+          <select class="select" id="stockFilter" aria-label="Filter by stock">
+            <option value="">Any stock</option>
+            <option value="in">In stock</option>
+            <option value="low">Low (≤5)</option>
+            <option value="out">Out of stock</option>
+          </select>
+        </div>
+
+        <div class="card">
+          <div class="card-body flush">
+            <div class="table-wrap">
+              <table class="data" id="productsTable">
+                <thead>
+                  <tr><th>Product</th><th>Price</th><th>Stock</th><th>Featured</th><th>Rating</th><th>Actions</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td colspan="6" class="muted" style="text-align:center;padding:2rem">Loading products…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="pagination" id="prodPager"></div>
+
+        <section id="categories" class="card" style="margin-top:1.5rem">
+          <div class="card-head">
+            <h2>Categories</h2>
+            <button class="btn btn-sm" id="newCategoryBtn">+ New category</button>
+          </div>
+          <div class="card-body flush">
+            <div class="table-wrap">
+              <table class="data">
+                <thead><tr><th>Category</th><th>Slug</th><th>Description</th><th>Actions</th></tr></thead>
+                <tbody id="catBody">
+                  <tr><td colspan="4" class="muted">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="productModal"></div>
+  <div id="categoryModal"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/admin-products.js"></script>
+</body>
+</html>

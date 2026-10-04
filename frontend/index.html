@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopX — Modern Online Shopping Platform</title>
+  <meta name="description" content="ShopX is a modern online shopping platform for electronics, fashion, accessories, home and beauty products." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234f46e5'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='Segoe UI' font-weight='bold'>X</text></svg>" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/splash.css" />
+  <script src="/js/splash.js"></script>
+</head>
+<body data-page="home">
+  <header id="site-header"></header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div>
+          <h1>Everything you love, delivered fast.</h1>
+          <p>Shop the latest electronics, fashion, home essentials and beauty picks — with real prices, honest reviews and secure checkout.</p>
+          <div class="hero-cta">
+            <a class="btn btn-lg" href="/products.html">Shop now</a>
+            <a class="btn btn-lg btn-outline-hero" href="/products.html?onSale=true">View deals</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div><b>Free shipping</b>on orders above ₹999</div>
+          <div><b>Easy returns</b>7-day replacement</div>
+          <div><b>Secure checkout</b>COD &amp; sandbox pay</div>
+          <div><b>24×7 support</b>we are always here</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Shop by category</h2>
+            <p>Handpicked collections for every need</p>
+          </div>
+          <a class="section-link" href="/products.html">Browse all ›</a>
+        </div>
+        <div class="cat-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="promo-strip">
+          <div class="promo-card">
+            <div class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></div>
+            <div><h3>Free delivery over ₹999</h3><p>Flat ₹49 shipping on smaller orders, nationwide.</p></div>
+          </div>
+          <div class="promo-card">
+            <div class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg></div>
+            <div><h3>Use code WELCOME10</h3><p>Get 10% off your first order, up to ₹500.</p></div>
+          </div>
+          <div class="promo-card">
+            <div class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div><h3>Genuine products</h3><p>Every listing is verified with real inventory.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div><h2>Featured products</h2><p>Staff picks our shoppers love</p></div>
+          <a class="section-link" href="/products.html?featured=true">View all ›</a>
+        </div>
+        <div class="product-grid" id="featuredGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div><h2>Trending now</h2><p>Highest rated picks this week</p></div>
+          <a class="section-link" href="/products.html?sort=rating">View all ›</a>
+        </div>
+        <div class="product-grid" id="trendingGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div><h2>Special offers</h2><p>Limited-time discounts on top brands</p></div>
+          <a class="section-link" href="/products.html?onSale=true">All deals ›</a>
+        </div>
+        <div class="product-grid" id="dealsGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div><h2>New arrivals</h2><p>Fresh stock, just landed</p></div>
+          <a class="section-link" href="/products.html?sort=newest">View all ›</a>
+        </div>
+        <div class="product-grid" id="newGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="newsletter">
+          <div>
+            <h2>Get deals before everyone else</h2>
+            <p>Join the ShopX newsletter for new arrivals, exclusive offers and shopping inspiration. No spam, ever.</p>
+          </div>
+          <form id="newsletterForm" novalidate>
+            <input class="input" type="email" name="email" placeholder="you@example.com" aria-label="Email address" required />
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

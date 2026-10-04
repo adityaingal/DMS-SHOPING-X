@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — ShopX</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234f46e5'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='Segoe UI' font-weight='bold'>X</text></svg>" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/splash.css" />
+  <script src="/js/splash.js"></script>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body data-page="admin" data-admin-page="dashboard">
+  <div class="admin-body">
+    <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div style="display:flex;gap:.7rem;align-items:center">
+          <button class="btn-icon admin-menu-btn" id="adminMenuBtn" aria-label="Open menu">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+          <div>
+            <h1>Dashboard</h1>
+            <div class="sub" id="dashDate">Loading…</div>
+          </div>
+        </div>
+        <a class="btn btn-sm btn-outline" href="/admin/products.html">+ Add product</a>
+      </header>
+
+      <main class="admin-content">
+        <div id="dashLoading" class="loading-overlay"><span class="spinner dark" style="width:30px;height:30px"></span></div>
+
+        <div id="dashContent" class="hidden">
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="ic indigo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 16v-2a4 4 0 0 0-4-4H6"/><path d="M21 16v-2a4 4 0 0 0-4-4H6"/></svg></div>
+              <div><div class="val" id="sCustomers">0</div><div class="lbl">Registered customers</div></div>
+            </div>
+            <div class="stat-card">
+              <div class="ic green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+              <div><div class="val" id="sRevenue">₹0</div><div class="lbl">Revenue (paid &amp; delivered)</div></div>
+            </div>
+            <div class="stat-card">
+              <div class="ic blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg></div>
+              <div><div class="val" id="sOrders">0</div><div class="lbl">Total orders</div></div>
+            </div>
+            <div class="stat-card">
+              <div class="ic amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg></div>
+              <div><div class="val" id="sProducts">0</div><div class="lbl">Products in catalogue</div></div>
+            </div>
+          </div>
+
+          <div class="admin-grid-2">
+            <div class="card">
+              <div class="card-head"><h2>Sales — last 7 days</h2><span class="text-sm muted" id="weekTotal"></span></div>
+              <div class="card-body">
+                <div class="chart-bars" id="salesChart"></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><h2>Low stock alerts</h2><a class="btn-link" href="/admin/products.html?stock=low">Manage</a></div>
+              <div class="card-body" id="lowStockBox"></div>
+            </div>
+          </div>
+
+          <div class="admin-grid-2" style="margin-top:1rem">
+            <div class="card">
+              <div class="card-head"><h2>Recent orders</h2><a class="btn-link" href="/admin/orders.html">View all</a></div>
+              <div class="card-body flush">
+                <div class="table-wrap">
+                  <table class="data" id="recentOrders">
+                    <thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th></tr></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-head"><h2>Orders by status</h2></div>
+              <div class="card-body" id="statusBreakdown"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

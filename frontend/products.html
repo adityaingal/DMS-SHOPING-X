@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop Products — ShopX</title>
+  <meta name="description" content="Browse, search and filter products on ShopX." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234f46e5'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='Segoe UI' font-weight='bold'>X</text></svg>" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/splash.css" />
+  <script src="/js/splash.js"></script>
+</head>
+<body data-page="shop">
+  <header id="site-header"></header>
+
+  <main>
+    <div class="container">
+      <div class="page-head">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/index.html">Home</a>
+          <span id="crumbCurrent">All products</span>
+        </nav>
+        <div class="section-head">
+          <div>
+            <h1 id="pageTitle">All products</h1>
+            <p id="pageSubtitle" class="muted">Browse our complete catalogue</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filters" id="filtersPanel" aria-label="Product filters">
+          <div class="filter-head">
+            <h3>Filters</h3>
+            <button class="btn-link" id="clearFilters" type="button">Clear all</button>
+          </div>
+          <div class="filter-group">
+            <h4>Category</h4>
+            <div class="filter-list" id="categoryFilters"><span class="muted text-sm">Loading…</span></div>
+          </div>
+          <div class="filter-group">
+            <h4>Brand</h4>
+            <div class="filter-list" id="brandFilters"><span class="muted text-sm">Loading…</span></div>
+          </div>
+          <div class="filter-group">
+            <h4>Price range (₹)</h4>
+            <div class="price-inputs">
+              <input class="input" type="number" id="minPrice" placeholder="Min" min="0" aria-label="Minimum price" />
+              <span class="muted">–</span>
+              <input class="input" type="number" id="maxPrice" placeholder="Max" min="0" aria-label="Maximum price" />
+            </div>
+            <button class="btn btn-sm btn-outline btn-block" id="applyPrice" type="button" style="margin-top:.6rem">Apply price</button>
+          </div>
+          <div class="filter-group">
+            <label class="checkbox-line filter-toggle">
+              <span><input type="checkbox" id="inStockOnly" /> In stock only</span>
+            </label>
+          </div>
+          <div class="filter-group">
+            <label class="checkbox-line filter-toggle">
+              <span><input type="checkbox" id="featuredOnly" /> Featured products</span>
+            </label>
+          </div>
+          <div class="filter-group">
+            <label class="checkbox-line filter-toggle">
+              <span><input type="checkbox" id="saleOnly" /> On sale / discounted</span>
+            </label>
+          </div>
+        </aside>
+
+        <section>
+          <div class="results-bar">
+            <div style="display:flex;align-items:center;gap:.7rem;flex-wrap:wrap">
+              <button class="btn btn-sm btn-outline filters-open-btn" id="openFilters" type="button">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                Filters
+              </button>
+              <span class="results-count" id="resultsCount">Loading products…</span>
+            </div>
+            <label class="text-sm muted" style="display:flex;gap:.5rem;align-items:center">
+              Sort by
+              <select class="sort-select" id="sortSelect" aria-label="Sort products">
+                <option value="newest">Newest arrivals</option>
+                <option value="popularity">Popularity</option>
+                <option value="rating">Customer rating</option>
+                <option value="price_asc">Price: low to high</option>
+                <option value="price_desc">Price: high to low</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="chip-row" id="activeChips"></div>
+
+          <div class="product-grid" id="productGrid"></div>
+
+          <div id="emptyState" class="empty-state hidden">
+            <div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+            <h3>No products found</h3>
+            <p id="emptyMsg">Try a different search term or remove some filters.</p>
+            <button class="btn" id="emptyClear" type="button">Clear all filters</button>
+          </div>
+
+          <div class="pagination" id="pagination"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/products-page.js"></script>
+</body>
+</html>
